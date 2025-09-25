@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Gerador de senhas</title>
+</head>
+<body>
+<section>
+    <form method="POST">
+        <label class="label" for="INPUT">Quantos caracters a senha deve ter?</label>
+        <input type="text" name="INPUT">
+        <button type="submit">Gerar</button>
+    </form>
+</section>
+
+   {% if enviado %}
+<section>
+    <div class="aba_senha">
+        <p>Senha gerada:</p>
+        <p>{{ senha }}</p>
+    </div>
+</section>
+    {% elif erro %}
+    <section>
+        <div class="erro">
+            <p> {{ erro }} </p>
+        </div>
+    </section>
+    {% endif %}
+
+
+</body>
+</html>
